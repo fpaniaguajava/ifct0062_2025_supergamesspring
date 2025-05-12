@@ -7,14 +7,9 @@
 </head>
 <body>
 <header>
-    <nav>
-        <ul class="nav-menu">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Crear</a></li>
-            <li><a href="#">Buscar</a></li>
-            <li><a href="#">Acerca de...</a></li>
-        </ul>
-    </nav>
+    <span th:replace="navbar-fragment :: nav-bar"></span>
+    <!-- navbar-frament es el nombre del template -->
+    <!-- nav-bar es el nombre del fragmento -->
 </header>
 
 <main>

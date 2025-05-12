@@ -17,8 +17,6 @@ public class Videogame {
     private boolean multiplayer;
     @Column(name="pvp")
     private int price;
-    @Transient
-    private boolean status;
     @ManyToOne
     @JoinColumn(name="idgenre")
     private Genre genre;
@@ -26,22 +24,20 @@ public class Videogame {
     public Videogame() {
     }
 
-    public Videogame(String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) {
+    public Videogame(String title, String platform, boolean multiplayer, int price, Genre genre) {
         this.title = title;
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
-        this.status = status;
         this.genre = genre;
     }
 
-    public Videogame(int id, String title, String platform, boolean multiplayer, int price, boolean status, Genre genre) {
+    public Videogame(int id, String title, String platform, boolean multiplayer, int price, Genre genre) {
         this.id = id;
         this.title = title;
         this.platform = platform;
         this.multiplayer = multiplayer;
         this.price = price;
-        this.status = status;
         this.genre = genre;
     }
 
@@ -85,14 +81,6 @@ public class Videogame {
         this.price = price;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
-
     public Genre getGenre() {
         return genre;
     }
@@ -109,7 +97,6 @@ public class Videogame {
                 ", platform='" + platform + '\'' +
                 ", multiplayer=" + multiplayer +
                 ", price=" + price +
-                ", status=" + status +
                 ", genre=" + genre +
                 '}';
     }
