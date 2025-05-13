@@ -35,7 +35,6 @@
     <div class="form-group">
       <label for="genre">Género:</label>
       <select id="genre" name="genre">
-        <!-- <tr th:each="videogame : ${videogames}"> -->
         <option th:each="genre : ${genres}" th:value="${genre.id}" th:text="${genre.name}"></option>
       </select>
     </div>

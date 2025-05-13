@@ -27,7 +27,7 @@ public class VideogameServiceTest {
     public void createVideogame() {
         Genre genero = new Genre("Genero borrar", "Descripción borrar");
         genero = this.genreRepository.save(genero);
-        Videogame vg1 = new Videogame("Borrar", "Plataforma", true, 100, true, genero);
+        Videogame vg1 = new Videogame("Borrar", "Plataforma", true, 100, genero);
         vg1 = this.videogameService.createVideogame(vg1);
         assertNotNull(vg1);
         this.videogameRepository.delete(vg1);
