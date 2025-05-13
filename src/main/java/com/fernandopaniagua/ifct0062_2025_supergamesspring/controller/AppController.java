@@ -39,4 +39,10 @@ public class AppController {
         this.videogameService.createVideogame(newVideogame);
         return "redirect:/";
     }
+
+    @GetMapping("/delete-videogame")
+    public String deleteVideogame(@RequestParam Integer id) {
+        this.videogameService.deleteVideogame(id);
+        return "redirect:/";
+    }
 }

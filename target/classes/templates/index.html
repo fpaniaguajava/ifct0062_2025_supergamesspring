@@ -23,6 +23,7 @@
             <th>Multijugador</th>
             <th>Precio (€)</th>
             <th>Género</th>
+            <th>Acción</th>
         </tr>
         </thead>
         <tbody>
@@ -34,6 +35,12 @@
             <td th:text="${videogame.multiplayer}"></td>
             <td th:text="${videogame.price}"></td>
             <td th:text="${videogame.genre.name}"></td>
+            <td>
+                <a th:href="@{delete-videogame(id=${videogame.id})}">
+                    <img src="/images/delete.png" width="50px">
+                </a>
+                <img src="/images/edit.png" width="50px">
+            </td>
         </tr>
         </tbody>
     </table>
