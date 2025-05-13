@@ -5,12 +5,12 @@ import com.fernandopaniagua.ifct0062_2025_supergamesspring.model.Videogame;
 import com.fernandopaniagua.ifct0062_2025_supergamesspring.repository.IGenreRepository;
 import com.fernandopaniagua.ifct0062_2025_supergamesspring.repository.IVideogameRepository;
 import com.fernandopaniagua.ifct0062_2025_supergamesspring.service.VideogameService;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 @SpringBootTest
 public class VideogameServiceTest {
@@ -23,7 +23,20 @@ public class VideogameServiceTest {
     @Autowired
     IVideogameRepository videogameRepository;
 
+
     @Test
+    public void getPlatformNames() {
+        List<String> platformNames = videogameService.getAllPlatforms();
+        platformNames.forEach(System.err::println);
+        assert true;
+    }
+
+    public void getGamesByPlatform() {
+        List<Videogame> vgs = videogameService.findVideogamesByPlatform("Nintendo Switch");
+        vgs.forEach(System.err::println);
+        assert true;
+    }
+
     public void createVideogame() {
         Genre genero = new Genre("Genero borrar", "Descripción borrar");
         genero = this.genreRepository.save(genero);

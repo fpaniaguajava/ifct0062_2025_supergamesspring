@@ -62,4 +62,11 @@ public class AppController {
         videogameService.updateVideogame(updatedVideogame);
         return "redirect:/";
     }
+
+    @GetMapping("/find-videogame")
+    public String searchVideogame(Model model){
+        List<String> platformNames = videogameService.getAllPlatforms();
+        model.addAttribute("platform_names", platformNames);
+        return "search-page";
+    }
 }

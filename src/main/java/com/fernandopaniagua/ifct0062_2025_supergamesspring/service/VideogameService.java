@@ -31,4 +31,12 @@ public class VideogameService {
     public void updateVideogame(Videogame videogame) {
         videogameRepository.save(videogame);
     }
+
+    public List<String> getAllPlatforms() {
+        return videogameRepository.getPlatformNames();
+    }
+
+    public List<Videogame> findVideogamesByPlatform(String platform) {
+        return videogameRepository.findByPlatform(platform);
+    }
 }

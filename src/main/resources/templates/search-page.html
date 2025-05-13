@@ -2,7 +2,7 @@
 <html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Videojuegos</title>
+    <title>Búsqueda de Videojuegos</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,6 +14,12 @@
 
 <main>
     <h1>Lista de Videojuegos</h1>
+    <form>
+        <select>
+            <option th:each="platformName : ${platform_names}" th:text="${platformName}"></option>
+        </select>
+        <button type="submit">Buscar</button>
+    </form>
     <table>
         <thead>
         <tr>
@@ -23,7 +29,6 @@
             <th>Multijugador</th>
             <th>Precio (€)</th>
             <th>Género</th>
-            <th>Acción</th>
         </tr>
         </thead>
         <tbody>
@@ -35,12 +40,6 @@
             <td th:text="${videogame.multiplayer}"></td>
             <td th:text="${videogame.price}"></td>
             <td th:text="${videogame.genre.name}"></td>
-            <td>
-                <a th:href="@{delete-videogame(id=${videogame.id})}">
-                    <img src="/images/delete.png" width="50px"></a>
-                <a th:href="@{edit-videogame(id=${videogame.id})}">
-                    <img src="/images/edit.png" width="50px"></a>
-            </td>
         </tr>
         </tbody>
     </table>
