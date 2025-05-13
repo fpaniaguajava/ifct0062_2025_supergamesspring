@@ -56,4 +56,10 @@ public class AppController {
         mav.addObject("videogame", videogame);
         return mav;
     }
+
+    @PostMapping("/edit-videogame")
+    public String doEditVideogame(@ModelAttribute Videogame updatedVideogame) {
+        videogameService.updateVideogame(updatedVideogame);
+        return "redirect:/";
+    }
 }

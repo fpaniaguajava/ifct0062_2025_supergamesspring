@@ -27,4 +27,8 @@ public class VideogameService {
     public Videogame findVideogameById(Integer id) {
         return videogameRepository.findById(id).orElse(null);
     }
+
+    public void updateVideogame(Videogame videogame) {
+        videogameRepository.save(videogame);
+    }
 }

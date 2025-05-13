@@ -11,8 +11,12 @@
 </header>
 
 <main>
-  <h1>Crear un Nuevo Videojuego</h1>
-  <form action="/videogames" method="post">
+  <h1>Editar Videojuego</h1>
+  <form action="/edit-videogame" method="post">
+    <div class="form-group">
+      <label for="title">Id:</label>
+      <input type="text" id="id" name="id" required th:value="${videogame.id}" readonly>
+    </div>
     <div class="form-group">
       <label for="title">Título:</label>
       <input type="text" id="title" name="title" required th:value="${videogame.title}">
@@ -39,7 +43,7 @@
       </select>
     </div>
     <div class="form-group">
-      <button type="submit">Crear Videojuego</button>
+      <button type="submit">Modificar Videojuego</button>
     </div>
   </form>
 </main>
