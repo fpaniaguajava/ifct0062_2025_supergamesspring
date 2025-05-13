@@ -39,7 +39,9 @@
                 <a th:href="@{delete-videogame(id=${videogame.id})}">
                     <img src="/images/delete.png" width="50px">
                 </a>
-                <img src="/images/edit.png" width="50px">
+                <a th:href="@{edit-videogame(id=${videogame.id})}">
+                    <img src="/images/edit.png" width="50px">
+                </a>
             </td>
         </tr>
         </tbody>

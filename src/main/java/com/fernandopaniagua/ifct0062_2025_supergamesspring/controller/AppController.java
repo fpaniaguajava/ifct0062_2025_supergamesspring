@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -44,5 +45,15 @@ public class AppController {
     public String deleteVideogame(@RequestParam Integer id) {
         this.videogameService.deleteVideogame(id);
         return "redirect:/";
+    }
+
+    @GetMapping("/edit-videogame")
+    public ModelAndView editVideogame(@RequestParam Integer id) {
+        ModelAndView mav = new ModelAndView("/edit_videogame");
+        List<Genre> genreList = this.genreService.getAllGenres();
+        Videogame videogame = videogameService.findVideogameById(id);
+        mav.addObject("genres", genreList);
+        mav.addObject("videogame", videogame);
+        return mav;
     }
 }

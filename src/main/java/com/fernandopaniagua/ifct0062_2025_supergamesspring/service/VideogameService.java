@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VideogameService {
@@ -22,5 +23,9 @@ public class VideogameService {
 
     public void deleteVideogame(Integer id) {
         videogameRepository.deleteById(id);
+    }
+
+    public Videogame findVideogameById(Integer id) {
+        return videogameRepository.findById(id).orElse(null);
     }
 }
