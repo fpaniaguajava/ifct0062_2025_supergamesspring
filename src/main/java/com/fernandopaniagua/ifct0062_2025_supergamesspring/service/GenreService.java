@@ -11,6 +11,8 @@ import java.util.List;
 public class GenreService implements IGenreService {
     @Autowired
     IGenreRepository genreRepository;
+
+    @Override
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
     }

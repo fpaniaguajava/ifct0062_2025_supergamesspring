@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -63,9 +64,16 @@ public class AppController {
     }
 
     @GetMapping("/find-videogame")
-    public String searchVideogame(Model model){
+    public String searchVideogame(Model model, @RequestParam(required = false) String platformName){
         List<String> platformNames = videogameService.getAllPlatforms();
+        List<Videogame> videogameList = new ArrayList<>();
+        if (platformName==null) {
+             videogameList = videogameService.getAllVideogames();
+        } else {
+            videogameList = videogameService.findVideogamesByPlatform(platformName);
+        }
         model.addAttribute("platform_names", platformNames);
+        model.addAttribute("videogames", videogameList);
         return "search-page";
     }
 }

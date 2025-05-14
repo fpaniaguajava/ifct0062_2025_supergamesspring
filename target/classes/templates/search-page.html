@@ -14,8 +14,9 @@
 
 <main>
     <h1>Lista de Videojuegos</h1>
-    <form>
-        <select>
+    <form method="get" action="/find-videogame">
+        <select name="platformName">
+            <option value="all">Todas</option>
             <option th:each="platformName : ${platform_names}" th:text="${platformName}"></option>
         </select>
         <button type="submit">Buscar</button>
