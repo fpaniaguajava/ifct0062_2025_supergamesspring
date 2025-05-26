@@ -1,5 +1,7 @@
 # SUPERGAMES APP 
 
-## ENUNCIADO
+## Aplicación Spring MVC para el mantenimiento de una base de datos PostgreSQL
 
-Implementa un CRUD en Spring Boot sobre una base de datos Postgresql con Spring MVC y Thymeleaf
+- Utiliza Thymeleaf como *template engine*
+
+
